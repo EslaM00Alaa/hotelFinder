@@ -6,7 +6,7 @@ const UserSchema = new mongoose.Schema(
         name : {
             type: String,
             required: [true, "Name is required"], // this text appear when error 
-            trim: true,
+            trim: true, 
         },
         email: {
             type: String,
