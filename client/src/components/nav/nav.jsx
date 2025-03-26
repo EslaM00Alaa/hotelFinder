@@ -34,9 +34,9 @@ const Nav = () => {
 
       {/* Sign In Button (Desktop) */}
       <div className="hidden lg:flex">
-        <button className="px-6 text-lg bg-black py-3 rounded-full text-white">
+        <Link to={'/login'} className="px-6 text-lg bg-black py-3 rounded-full text-white">
           SIGN IN
-        </button>
+        </Link>
       </div>
 
       {/* Mobile Menu Button */}
@@ -61,9 +61,9 @@ const Nav = () => {
           <Link className="text-lg text-gray-700 font-semibold" to={"/contact"} onClick={() => setMenuOpen(false)}>
             Contact Us
           </Link>
-          <button className="px-6 text-lg bg-black py-3 rounded-full text-white w-fit" onClick={() => setMenuOpen(false)}>
+          <Link to={'/login'} className="px-6 text-lg bg-black py-3 rounded-full text-white w-fit" onClick={() => setMenuOpen(false)}>
             SIGN IN
-          </button>
+          </Link>
         </div>
       )}
     </nav>

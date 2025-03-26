@@ -9,6 +9,7 @@ import img3 from '../../../public/images/b866c3e894ab5648a3b779679b8b9069.jpg';
 import im1 from "../../../public/images/img1.jpg";
 import im2 from "../../../public/images/img2.jpg";
 import im3 from "../../../public/images/img3.jpg";
+import Footer from '../../components/footer/footer';
 
 const Landing = () => {
   return (
@@ -70,6 +71,7 @@ const Landing = () => {
         </div>
 
       </div>
+      <Footer/>
     </div>
   );
 };
