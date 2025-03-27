@@ -1,11 +1,13 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Landing from "./pages/landing/landing";
 import Login from "./pages/auth/login";
-import SignUp from "./pages/auth/signup";
+import SignUppage from "./pages/auth/signup";
 import Forget from "./pages/auth/forgetpass";
-import CheckCode from "./pages/auth/checkCode";
+import CheckCodepage from "./pages/auth/checkCode";
 import ChangePass from "./pages/auth/changePassword";
 import Hotels from "./pages/landing/hotels";
+import AboutUs from "./pages/landing/aboutUs";
+import ContactUs from "./pages/landing/contactUs";
 
 // import Page404 from "./pages/Page404"; // Make sure this import path is correct
 
@@ -16,9 +18,11 @@ const AppRouter = () => {
         <Route path="/" element={<Landing />} /> 
         <Route path="/hotels" element={<Hotels />} /> 
         <Route path="/login" element={<Login />} /> 
-        <Route path="/signup" element={<SignUp />} /> 
+        <Route path="/signup" element={<SignUppage />} /> 
         <Route path="/forget" element={<Forget />} /> 
-        <Route path="/checkcode/:email" element={<CheckCode />} /> 
+        <Route path="/abouts" element={<AboutUs />} /> 
+        <Route path="/contact" element={<ContactUs />} /> 
+        <Route path="/checkcode/:email" element={<CheckCodepage />} /> 
         <Route path="/changepass/:email" element={<ChangePass />} /> 
 {/* 
         <Route path="*" element={<Page404 />} /> */}

@@ -1,11 +1,29 @@
 "use client";
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { FaHotel, FaBars } from "react-icons/fa6";
 import { FaTimes } from "react-icons/fa"; // Correct import
+import { Person } from "react-bootstrap-icons";
 
 const Nav = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
+
+  // Check if user exists in localStorage on mount
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
+
+  // Logout function
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    setUser(null);
+    navigate("/");
+  };
 
   return (
     <nav className="py-5 px-6 lg:px-24 flex justify-between items-center bg-white shadow-md">
@@ -32,11 +50,19 @@ const Nav = () => {
         </Link>
       </div>
 
-      {/* Sign In Button (Desktop) */}
-      <div className="hidden lg:flex">
-        <Link to={'/login'} className="px-6 text-lg bg-black py-3 rounded-full text-white">
-          SIGN IN
-        </Link>
+      {/* User Info / Sign In (Desktop) */}
+      <div className="hidden lg:flex items-center">
+        {user ? (
+          <div className="flex items-center space-x-4">
+            <span className="text-2xl font-semibold text-[#212121]">{user.name}</span>
+            <Person className="text-3xl" />
+            <button onClick={handleLogout} className="px-4 py-2 text-red-500 text-2xl rounded-md">Logout</button>
+          </div>
+        ) : (
+          <Link to={"/login"} className="px-6 text-lg bg-black py-3 rounded-full text-white">
+            SIGN IN
+          </Link>
+        )}
       </div>
 
       {/* Mobile Menu Button */}
@@ -61,9 +87,19 @@ const Nav = () => {
           <Link className="text-lg text-gray-700 font-semibold" to={"/contact"} onClick={() => setMenuOpen(false)}>
             Contact Us
           </Link>
-          <Link to={'/login'} className="px-6 text-lg bg-black py-3 rounded-full text-white w-fit" onClick={() => setMenuOpen(false)}>
-            SIGN IN
-          </Link>
+          {user ? (
+            <div className="flex flex-col items-center space-y-3">
+              <div className="flex items-center justify-center" >
+              <Person className="text-2xl mr-2" />
+              <span className="text-lg font-semibold text-[#212121]">{user.name}</span>
+              </div>
+              <button onClick={handleLogout} className="px-4 py-2 text-red-500 rounded-md">Logout</button>
+            </div>
+          ) : (
+            <Link to={"/login"} className="px-6 text-xl bg-black py-3 rounded-full text-white w-fit" onClick={() => setMenuOpen(false)}>
+              SIGN IN
+            </Link>
+          )}
         </div>
       )}
     </nav>

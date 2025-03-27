@@ -8,7 +8,7 @@ const crypto = require("crypto"); // to genrate random number   4char to OTP
 
 
 const signUp = async (userData) => {
-  const { name, email, password } = userData;
+  const { name, email,phone, password } = userData;
 
   // Check if the user already exists
   const existingUser = await User.findOne({ email });
@@ -23,6 +23,7 @@ const signUp = async (userData) => {
   const newUser = new User({
     name,
     email,
+    phone,
     password: hashedPassword,
   });
 
