@@ -1,17 +1,29 @@
 "use client";
-import Nav from '../../components/nav/nav';
-import { Search } from 'react-bootstrap-icons';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Search } from "react-bootstrap-icons";
+
+import Nav from "../../components/nav/nav";
+import Footer from "../../components/footer/footer";
 
 // Import images
-import img1 from '../../../public/images/5536fbbe4944cceeee25db1bd75a0faf.jpg';
-import img2 from '../../../public/images/6c886a58955b62b80b29d29a69432904.jpg';
-import img3 from '../../../public/images/b866c3e894ab5648a3b779679b8b9069.jpg';
+import img1 from "../../../public/images/5536fbbe4944cceeee25db1bd75a0faf.jpg";
+import img2 from "../../../public/images/6c886a58955b62b80b29d29a69432904.jpg";
+import img3 from "../../../public/images/b866c3e894ab5648a3b779679b8b9069.jpg";
 import im1 from "../../../public/images/img1.jpg";
 import im2 from "../../../public/images/img2.jpg";
 import im3 from "../../../public/images/img3.jpg";
-import Footer from '../../components/footer/footer';
 
 const Landing = () => {
+  const [city, setCity] = useState("");
+  const navigate = useNavigate(); // ✅ Use useNavigate for navigation
+
+  const handleSearch = () => {
+    if (city.trim()) {
+      navigate(`/hotels/${city}`);
+    }
+  };
+
   return (
     <div>
       <Nav />
@@ -29,10 +41,15 @@ const Landing = () => {
           <div className="flex items-center justify-center lg:justify-start">
             <input
               type="text"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
               className="p-3 lg:p-4 px-6 lg:px-10 border-[2px] lg:border-[3px] border-[#777] w-10/12 lg:w-7/12 rounded-full placeholder:text-lg lg:placeholder:text-2xl placeholder:text-[#212121]"
               placeholder="Search By City"
             />
-            <div className="p-4 lg:p-5 cursor-pointer text-lg lg:text-xl rounded-full bg-[#212121] text-white font-bold -ml-10 lg:-ml-12">
+            <div 
+              onClick={handleSearch}
+              className="p-4 lg:p-5 cursor-pointer text-lg lg:text-xl rounded-full bg-[#212121] text-white font-bold -ml-10 lg:-ml-12"
+            >
               <Search />
             </div>
           </div>
@@ -60,7 +77,7 @@ const Landing = () => {
             <h2 className="text-2xl lg:text-3xl font-semibold">2,000+</h2>
             <h2 className="text-2xl lg:text-3xl font-semibold">Unique Places</h2>
           </div>
-          <div className="mt-6 lg:mt-8 flex  justify-center items-center">
+          <div className="mt-6 lg:mt-8 flex justify-center items-center">
             <div className="w-5/12 lg:w-6/12 mx-2 lg:mx-4">
               <img src={img3} className="shadow-xl w-full h-full rounded-2xl object-cover" alt="Featured Hotel" />
             </div>
@@ -71,7 +88,7 @@ const Landing = () => {
         </div>
 
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

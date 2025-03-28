@@ -7,6 +7,15 @@ const HotelSchema = new mongoose.Schema(
         required: [true, "Hotel name is required"],
         trim: true,
       },
+    city: {
+        type: String,
+        required: [true, "Hotel city is required"],
+        trim: true,
+      },
+    stars: {
+        type: Number,
+        required: [true, "Hotel stars is required"]
+      },
       description: {
         type: String,
         required: [true, "Description is required"],

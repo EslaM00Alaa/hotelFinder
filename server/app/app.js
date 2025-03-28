@@ -3,6 +3,7 @@ const cors = require("cors");
 const rateLimit = require("express-rate-limit");
 
 const AuthRoutes = require("./modules/user/user.route");
+const HotelRoutes = require("./modules/hotel/hotel.routes");
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.use(limiter);
 
 // Routes
 app.use("/api", AuthRoutes);
+app.use("/api", HotelRoutes);
 
 app.get("/", (req, res) => {
   res.send("Hello, Express with MongoDB!");
