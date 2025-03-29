@@ -8,6 +8,7 @@ import ChangePass from "./pages/auth/changePassword";
 import Hotels from "./pages/landing/hotels";
 import AboutUs from "./pages/landing/aboutUs";
 import ContactUs from "./pages/landing/contactUs";
+import HotelPage from "./pages/hotel/hotel";
 
 // import Page404 from "./pages/Page404"; // Make sure this import path is correct
 
@@ -17,6 +18,7 @@ const AppRouter = () => {
       <Routes>
         <Route path="/" element={<Landing />} /> 
         <Route path="/hotels/:city?" element={<Hotels />} />
+        <Route path="/hotel/:id" element={<HotelPage />} />
         <Route path="/login" element={<Login />} /> 
         <Route path="/signup" element={<SignUppage />} /> 
         <Route path="/forget" element={<Forget />} /> 

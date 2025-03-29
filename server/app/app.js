@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const rateLimit = require("express-rate-limit");
+const path = require("path"); // ✅ Fixed import
 
 const AuthRoutes = require("./modules/user/user.route");
 const HotelRoutes = require("./modules/hotel/hotel.routes");
@@ -21,6 +22,9 @@ const limiter = rateLimit({
 
 // Apply rate limiting to all routes
 app.use(limiter);
+
+// ✅ Fixed path for serving static files
+app.use("/uploads", express.static(path.join("./uploads")));
 
 // Routes
 app.use("/api", AuthRoutes);

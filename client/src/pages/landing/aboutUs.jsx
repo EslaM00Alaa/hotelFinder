@@ -10,7 +10,7 @@ const AboutUs = () => {
       {/* Hero Section */}
       <div className="relative h-[400px] bg-cover bg-center flex items-center justify-center" style={{ backgroundImage: 'url(https://source.unsplash.com/1600x900/?hotel,travel)' }}>
         <div className="absolute inset-0 bg-[#212121]"></div>
-        <h1 className="relative text-white text-4xl lg:text-5xl font-bold text-center">
+        <h1 className="relative text-white  text-3xl lg:text-5xl font-bold text-center">
           Discover & Connect with HotelFinder
         </h1>
       </div>

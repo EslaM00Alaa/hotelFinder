@@ -44,10 +44,10 @@ const insertHotel = async (req, res) => {
           }
       
           // Assign cover image (first image)
-          req.body.cover = `/uploads/images/${req.files[0].filename}`;
+          req.body.cover = `/uploads/hotels/${req.files[0].filename}`;
       
           // Assign remaining images to the images array
-          req.body.images = req.files.slice(1).map(file => `/uploads/images/${file.filename}`);
+          req.body.images = req.files.slice(1).map(file => `/uploads/hotels/${file.filename}`);
           req.body.location = {lat:req.body.lat,long:req.body.long}
       const { id } = req.params;
       const result = await hotelService.updateHotel(id, req.body);
@@ -63,6 +63,16 @@ const insertHotel = async (req, res) => {
   const getAllHotels = async (req, res) => {
     try {
       const result = await hotelService.getAllHotels();
+      res.status(200).json(result);
+    } catch (error) {
+      res.status(500).json({ success: false, error: error.message });
+    }
+  };
+
+  const getHotelConroller = async (req, res) => {
+    try {
+      const { id } = req.params;
+      const result = await hotelService.getHotel(id);
       res.status(200).json(result);
     } catch (error) {
       res.status(500).json({ success: false, error: error.message });
@@ -104,5 +114,6 @@ const insertHotel = async (req, res) => {
     updateHotel,
     getAllHotels,
     getHotelsByNearest,
+    getHotelConroller,
     getHotelsByCity,
   };

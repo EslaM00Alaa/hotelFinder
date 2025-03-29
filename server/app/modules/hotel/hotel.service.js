@@ -52,6 +52,16 @@ const getAllHotels = async () => {
   }
 };
 
+// get detailes hotel by id
+const getHotel = async (id) => {
+  try {
+    const hotel = await Hotel.findById(id);
+    return { success: true, hotel };
+  } catch (error) {
+    return { success: false, error: error.message };
+  }
+};
+
 /**
  * Get hotels by nearest location
  */
@@ -85,6 +95,7 @@ module.exports = {
   deleteHotel,
   updateHotel,
   getAllHotels,
+  getHotel,
   getHotelsByNearest,
   getHotelsByCity,
 };
