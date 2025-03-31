@@ -63,7 +63,7 @@ const forgotPassword = async (email) => {
     throw new Error("User not found");
   }
 
-  // Generate a random verification code
+  // Generate a random verification code crypto
   const verificationCode = crypto.randomInt(1000, 9999).toString();
 
   // Save the code in the user document
@@ -106,7 +106,7 @@ const changePassword = async (email, newPassword) => {
   {
     throw new Error("You Cant Change Password");
   }
-  // Hash the new password
+  // Hash the new password bcrypt
 
   const hashedPassword = await bcrypt.hash(newPassword, 10);
 
