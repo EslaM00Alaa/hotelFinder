@@ -9,13 +9,13 @@ const Footer = () => {
       </h3>
 
       <div className='mb-3 white flex flex-wrap justify-center md:justify-between text-2xl md:text-3xl'>
-        <a href="https://www.linkedin.com/in/eslam-alaa-035470230?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" className='mx-2'>
+        <a href="https://www.linkedin.com/in/zakaria-gadelkarim-31840928b/" target="_blank" rel="noopener noreferrer" className='mx-2'>
           <Linkedin />
         </a>
-        <a href="https://www.facebook.com/profile.php?id=100008757813336&mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" className='mx-2'>
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" className='mx-2'>
           <Facebook />
         </a>
-        <a href="https://github.com/EslaM00Alaa" target="_blank" rel="noopener noreferrer" className='mx-2'>
+        <a href="https://github.com/zak-gad" target="_blank" rel="noopener noreferrer" className='mx-2'>
           <Github />
         </a>
         <a href="https://wa.me/201060849583?text=Hello!%20I%20would%20like%20to%20get%20in%20touch%20with%20you." target="_blank" rel="noopener noreferrer" className='mx-2'>
